@@ -17,12 +17,13 @@ app.use(
 
 app.post('/send', async (c) => {
 	const body = await c.req.json();
-	await send(c.env.SENDER_EMAIL, c.env.SENDER_NAME, body.to, body.name, body.title, body.content, body.type);
+	const resp = await send(c.env.SENDER_EMAIL, c.env.SENDER_NAME, body.to, body.name, body.title, body.content, body.type);
+	return c.json({ success: resp.ok });
 });
 
 app.post('/send/activation', async (c) => {
 	const body = await c.req.json();
-	await send(
+	const resp = await send(
 		c.env.SENDER_EMAIL,
 		c.env.SENDER_NAME,
 		body.to,
@@ -30,6 +31,7 @@ app.post('/send/activation', async (c) => {
 		`${body.title}`,
 		activation(body.site_name, `${body.name}`, `${body.url}`)
 	);
+	return c.json({ success: resp.ok });
 });
 
 export default {
