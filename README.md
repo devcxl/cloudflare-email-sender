@@ -24,9 +24,11 @@
 2. 选择 DNS > 记录 > 添加记录 。
 3. 添加以下 TXT DNS 记录，替换 `myaccount.workers.dev` 与你自己的 `workers.dev` 子域
 
-   | Type | Name           | Content                          |
-   | ---- | -------------- | -------------------------------- |
-   | TXT  | \_mailchannels | v=mc1 cfid=myaccount.workers.dev |
+   | Type | Name           | Content                                              |
+   | ---- | -------------- | ---------------------------------------------------- |
+   | TXT  | \_mailchannels | v=mc1 cfid=myaccount.workers.dev cfid=yourdomain.com |
+
+> `yourdomain.com`应设置为 worker 自定义域的二级域名
 
 ## 添加 MailChannel 的 SPF 支持
 
@@ -39,8 +41,6 @@
    | Type | Name | Content                                                                    |
    | ---- | ---- | -------------------------------------------------------------------------- |
    | TXT  | @    | v=spf1 include:\_spf.mx.cloudflare.net include:relay.mailchannels.net -all |
-
-
 
 ## 部署
 
@@ -66,7 +66,7 @@
 ### 发送自定义邮件
 
 ```shell
-curl -X POST -L https://email-sender.yourname.workers.dev/v1/send \
+curl -X POST -L https://custom.yourdomain.com/v1/send \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {ACCESS_TOKEN}' \
 -d '{
@@ -82,7 +82,7 @@ curl -X POST -L https://email-sender.yourname.workers.dev/v1/send \
 
 ```shell
 
-curl -X POST -L https://email-sender.yourname.workers.dev/v1/send/activation \
+curl -X POST -L https://custom.yourdomain.com/v1/send/activation \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {ACCESS_TOKEN}' \
 -d '{
@@ -100,4 +100,4 @@ curl -X POST -L https://email-sender.yourname.workers.dev/v1/send/activation \
 - https://www.fadhil-blog.dev/blog/cloudflare-worker-send-email/
 - https://medium.com/@tristantrommer/how-to-send-free-transactional-emails-with-worker-mailchannels-via-cloudflare-workers-818b787b33f9
 - https://developers.cloudflare.com/pages/functions/plugins/mailchannels/
-
+- https://www.breakp.dev/blog/email-flare-send-from-worker-for-free/
