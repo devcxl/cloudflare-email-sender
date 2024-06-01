@@ -1,6 +1,7 @@
+import { Bindings } from "./bindings";
+
 export async function send(
-	from: string,
-	from_name: string,
+	env: Bindings,
 	to: string,
 	to_name: string,
 	title: string,
@@ -16,9 +17,12 @@ export async function send(
 			personalizations: [
 				{
 					to: [{ email: `${to}`, name: `${to_name}` }],
+					dkim_domain: `${env.DKIM_DOMAIN}`,
+					dkim_selector: `${env.DKIM_SELECTOR}`,
+					dkim_private_key: `${env.DKIM_PRIVATE_KEY}`
 				},
 			],
-			from: { email: `${from}`, name: `${from_name}` },
+			from: { email: `${env.SENDER_EMAIL}`, name: `${env.SENDER_NAME}` },
 			subject: `${title}`,
 			content: [
 				{
