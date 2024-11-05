@@ -1,6 +1,9 @@
 # cloudflare-email-sender
 
 使用 cloudflare 免费发送邮件
+>自 2024 年 8 月 31 日起，MailChannels 不再为 Cloudflare Workers 用户提供免费电子邮件发送服务
+> MailChannels原文链接: https://support.mailchannels.com/hc/en-us/articles/26814255454093-End-of-Life-Notice-Cloudflare-Workers
+
 
 ## 前置条件
 
