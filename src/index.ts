@@ -17,8 +17,8 @@ app.use(
 
 app.post('/send', async (c) => {
 	const body = await c.req.json();
-	const resp = await send(c.env, body.to, body.name, body.title, body.content, body.type);
-	return c.json({ success: resp.ok });
+	const resp = await send(c.env, body.to, body.title, body.content, body.type);
+	return resp;
 });
 
 app.post('/send/activation', async (c) => {
@@ -26,11 +26,10 @@ app.post('/send/activation', async (c) => {
 	const resp = await send(
 		c.env,
 		body.to,
-		body.name,
-		`${body.title}`,
+		body.title,
 		activation(body.site_name, `${body.name}`, `${body.url}`)
 	);
-	return c.json({ success: resp.ok });
+	return resp;
 });
 
 export default {

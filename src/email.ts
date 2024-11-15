@@ -1,36 +1,25 @@
-import { Bindings } from "./bindings";
+import { Bindings } from './bindings';
+import { Resend } from 'resend';
 
-export async function send(
-	env: Bindings,
-	to: string,
-	to_name: string,
-	title: string,
-	content: string,
-	type: string = 'text/html'
-) {
-	const send_request = new Request('https://api.mailchannels.net/tx/v1/send', {
-		method: 'POST',
-		headers: {
-			'content-type': 'application/json',
-		},
-		body: JSON.stringify({
-			personalizations: [
-				{
-					to: [{ email: `${to}`, name: `${to_name}` }],
-					dkim_domain: `${env.DKIM_DOMAIN}`,
-					dkim_selector: `${env.DKIM_SELECTOR}`,
-					dkim_private_key: `${env.DKIM_PRIVATE_KEY}`
-				},
-			],
-			from: { email: `${env.SENDER_EMAIL}`, name: `${env.SENDER_NAME}` },
-			subject: `${title}`,
-			content: [
-				{
-					type: `${type}`,
-					value: `${content}`,
-				},
-			],
-		}),
-	});
-	return await fetch(send_request);
+export async function send(env: Bindings, to: string, title: string, content: string, type: string = 'text/html') {
+	const resend = new Resend(env.RESEND_APIKEY);
+	if ('text/html' === type) {
+		const { data, error } = await resend.emails.send({
+			from: `${env.SENDER_NAME} <${env.SENDER_EMAIL}>`,
+			to: to,
+			subject: title,
+			html: content,
+		});
+		return Response.json({ data, error });
+	} else if ('text/plain' === type) {
+		const { data, error } = await resend.emails.send({
+			from: `${env.SENDER_NAME} <${env.SENDER_EMAIL}>`,
+			to: to,
+			subject: title,
+			text: content,
+		});
+		return Response.json({ data, error });
+	} else {
+		throw new Error(`type: ${type} not support!`);
+	}
 }
