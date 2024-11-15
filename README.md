@@ -53,3 +53,61 @@
     ```
     npm run deploy
     ```
+
+## 使用示例
+
+### 发送自定义邮件
+
+```shell
+curl -X POST -L https://custom.yourdomain.com/v1/send \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {ACCESS_TOKEN}' \
+-d '{
+    "to": "you@example.com",
+    "name": "Jone",
+    "title": "Just Test Message",
+    "content": "<h1>Hello This is test message</h1>",
+    "type": "text/html"
+}'
+```
+
+### 发送纯文本邮件
+
+```shell
+curl -X POST -L https://custom.yourdomain.com/v1/send \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {ACCESS_TOKEN}' \
+-d '{
+    "to": "you@example.com",
+    "title": "Just Test Message",
+    "content": "Hello This is test message. ",
+    "type": "text/plain"
+}'
+```
+
+### 发送模板邮件
+
+```shell
+
+curl -X POST -L https://custom.yourdomain.com/v1/send/activation \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {ACCESS_TOKEN}' \
+-d '{
+    "to": "you@example.com",
+    "title": "Just Test Message",
+    "site_name": "Test Title",
+    "url": "https://www.google.com/search?q=devcxl"
+}'
+```
+
+## 参考
+
+- https://community.cloudflare.com/t/send-email-from-workers-using-mailchannels-for-free/361973/63
+- https://www.fadhil-blog.dev/blog/cloudflare-worker-send-email/
+- https://medium.com/@tristantrommer/how-to-send-free-transactional-emails-with-worker-mailchannels-via-cloudflare-workers-818b787b33f9
+- https://developers.cloudflare.com/pages/functions/plugins/mailchannels/
+- https://www.breakp.dev/blog/email-flare-send-from-worker-for-free/
+- https://blog.mailchannels.com/what-is-dmarc/
+- https://developers.cloudflare.com/workers/tutorials/send-emails-with-resend/
+- https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/
+- https://github.com/cloudsecurityalliance/webfinger.io/blob/main/docs.webfinger.io/DKIM-setup.md
