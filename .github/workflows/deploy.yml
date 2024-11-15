@@ -13,8 +13,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --name email-sender
-          wranglerVersion: "3.87.0"
           secrets: |
             ACCESS_TOKEN
             RESEND_APIKEY
