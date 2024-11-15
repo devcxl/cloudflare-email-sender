@@ -1,9 +1,9 @@
 # cloudflare-email-sender
 
 
-> 自 2024 年 8 月 31 日起，MailChannels 不再为 Cloudflare Workers 用户提供免费电子邮件发送服务 [MailChannels原文](https://support.mailchannels.com/hc/en-us/articles/26814255454093-End-of-Life-Notice-Cloudflare-Workers): 
-> mailchannels不再免费 由于申请免费账户需海外信用卡难度较高因此放弃继续使用 转为 Resend进行发信服务
-> 如仍需要mailchannels发信, 旧worker代码 位于 `old/mailchannels` 分支
+> 自 2024 年 8 月 31 日起，MailChannels 不再为 Cloudflare Workers 用户提供免费电子邮件发送服务 [MailChannels原文](https://support.mailchannels.com/hc/en-us/articles/26814255454093-End-of-Life-Notice-Cloudflare-Workers)  
+> 由于mailchannels不再免费 且申请免费账户需信用卡成本较高，因此放弃继续使用，转为Resend发信服务  
+> 如仍需要mailchannels发信, 请查看 `old/mailchannels` 分支
 
 使用 cloudflare 免费发送邮件
 
