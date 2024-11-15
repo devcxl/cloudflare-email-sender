@@ -13,6 +13,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "3.87.0"
           secrets: |
             ACCESS_TOKEN
             RESEND_APIKEY
@@ -23,3 +24,4 @@ jobs:
           RESEND_APIKEY: ${{ secrets.RESEND_APIKEY }}
           SENDER_NAME: ${{ secrets.SENDER_NAME }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+
