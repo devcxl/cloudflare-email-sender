@@ -37,27 +37,25 @@
    git clone https://github.com/devcxl/cloudflare-email-sender
    ```
 
-2. 修改`wrangler.example.toml`为 `wrangler.toml`
-
-3. 编辑 `wrangler.toml` 中的变量
+2. 编辑 `wrangler.toml` 中的变量
    ```
    # 自定义域名的发信邮件地址
    SENDER_EMAIL = "do-not-replay@example.com"
    # 发信人简称/名字
    SENDER_NAME = "Example"
    ```
-4. 运行 `openssl rand -base64 32` 生成一个随机密钥（可选，可以自己设置密钥）
+3. 运行 `openssl rand -base64 32` 生成一个随机密钥（可选，可以自己设置密钥）
 
    ![image](https://file.devcxl.cn/blog/images/2024111600182427-20241116001824.png)
 
-5. 运行 `npx wrangler secret put ACCESS_TOKEN` 设置上一步生成的随机密钥
+4. 运行 `npx wrangler secret put ACCESS_TOKEN` 设置上一步生成的随机密钥
 
    ![image](https://file.devcxl.cn/blog/images/2024111600201505-20241116002014.png)
 
-6. 运行 `npx wrangler secret put RESEND_APIKEY` 设置 Resend 中得到的 key
+5. 运行 `npx wrangler secret put RESEND_APIKEY` 设置 Resend 中得到的 key
    ![image](https://file.devcxl.cn/blog/images/2024111600143187-20241116001431.png)
 
-7. 部署项目
+6. 部署项目
     ```
     npm run deploy
     ```
