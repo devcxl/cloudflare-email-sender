@@ -1,5 +1,10 @@
 # cloudflare-email-sender
 
+
+> 自 2024 年 8 月 31 日起，MailChannels 不再为 Cloudflare Workers 用户提供免费电子邮件发送服务 [MailChannels原文](https://support.mailchannels.com/hc/en-us/articles/26814255454093-End-of-Life-Notice-Cloudflare-Workers): 
+> mailchannels不再免费 由于申请免费账户需海外信用卡难度较高因此放弃继续使用 转为 Resend进行发信服务
+> 如仍需要mailchannels发信, 旧worker代码 位于 `old/mailchannels` 分支
+
 使用 cloudflare 免费发送邮件
 
 ## 前置条件
@@ -21,12 +26,15 @@
 
 配置并校验完成后，在 Resend 菜单中找到 `API Keys` 创建一个 key 记下这个 key 随后项目中会用到。
 
+> 注意 Resend免费计划用户 每天有100封的发信限制 每月有3000封的发信限制。
+> 如果需要发送更多邮件请升级 Resend 的计划
+
 ## 创建邮件发送服务
 
 1. 克隆项目到本地
 
    ```
-   git clone -b resend https://github.com/devcxl/cloudflare-email-sender
+   git clone https://github.com/devcxl/cloudflare-email-sender
    ```
 
 2. 修改`wrangler.example.toml`为 `wrangler.toml`
