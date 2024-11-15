@@ -64,7 +64,7 @@
 
 ## 使用示例
 
-### 发送自定义邮件
+### 发送HTML邮件
 
 ```shell
 curl -X POST -L https://custom.yourdomain.com/v1/send \
@@ -72,7 +72,6 @@ curl -X POST -L https://custom.yourdomain.com/v1/send \
 -H 'Authorization: Bearer {ACCESS_TOKEN}' \
 -d '{
     "to": "you@example.com",
-    "name": "Jone",
     "title": "Just Test Message",
     "content": "<h1>Hello This is test message</h1>",
     "type": "text/html"
