@@ -18,7 +18,7 @@
 
 ## Resend 相关
 
-如果您还没有 Resend 帐户，可以注册一个 Resend 免费帐户 。注册后，前往 Domains 菜单项，然后点击`Add Domain`，输入要添加的域，然后选择一个区域。
+如果您还没有 Resend 帐户，可以注册一个 [Resend 免费帐户](https://resend.com/signup) 。注册后，前往 Domains 菜单项，然后点击`Add Domain`，输入要添加的域，然后选择一个区域。
 
 随后在 Cloudflare 中的 DNS 中配置 Resend 中需要的 DNS 记录
 
