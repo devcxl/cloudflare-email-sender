@@ -8,14 +8,15 @@
     "start": "wrangler dev"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240403.0",
-    "typescript": "^5.0.4",
-    "wrangler": "^3.0.0"
+    "@cloudflare/workers-types": "^4.20241112.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.87.0"
   },
   "dependencies": {
-    "hono": "^4.2.9"
+    "hono": "^4.6.10",
+    "resend": "4.0.1-alpha.0"
   },
   "overrides": {
-		"@types/node": "20.8.3"
-	}
+    "@types/node": "20.8.3"
+  }
 }
