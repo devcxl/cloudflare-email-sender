@@ -13,4 +13,13 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          
+          secrets: |
+            ACCESS_TOKEN
+            RESEND_APIKEY
+            SENDER_NAME
+            SENDER_EMAIL
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          RESEND_APIKEY: ${{ secrets.RESEND_APIKEY }}
+          SENDER_NAME: ${{ secrets.SENDER_NAME }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
